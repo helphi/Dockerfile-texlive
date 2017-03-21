@@ -1,10 +1,10 @@
 FROM alpine
 
-ENV PATH /usr/local/texlive/2016/bin/x86_64-linux:$PATH
+ENV LANG=C.UTF-8
 
-RUN apk --no-cache add perl wget xz && \
-    mkdir /tmp/install-tl-unx && \
-    wget -q http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+RUN apk --no-cache add perl wget xz
+
+RUN wget -q http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     mkdir install-tl-unx && \
     tar xzf install-tl-unx.tar.gz -C install-tl-unx --strip-components=1 && \
     printf "%s\n" \
@@ -14,3 +14,5 @@ RUN apk --no-cache add perl wget xz && \
       > texlive.profile && \
     install-tl-unx/install-tl --profile=texlive.profile && \
     rm -rf install-tl-unx install-tl-unx.tar.gz texlive.profile
+    
+ENV PATH $PATH:/usr/local/texlive/2016/bin/x86_64-linux
