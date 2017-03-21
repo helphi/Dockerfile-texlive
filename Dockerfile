@@ -1,6 +1,6 @@
-FROM frolvlad/alpine-glibc
+FROM frolvlad/alpine-glibc:alpine-3.5
 
-RUN apk --no-cache add perl wget xz tar fontconfig-dev && \
+RUN apk --no-cache add perl wget xz tar fontconfig && \
     wget -q http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     mkdir install-tl-unx && \
     tar xzf install-tl-unx.tar.gz -C install-tl-unx --strip-components=1 && \
