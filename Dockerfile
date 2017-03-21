@@ -2,7 +2,7 @@ FROM alpine
 
 ENV PATH /usr/local/texlive/2016/bin/x86_64-linux:$PATH
 
-RUN apk --no-cache add perl wget xzdec && \
+RUN apk --no-cache add perl wget xz && \
     mkdir /tmp/install-tl-unx && \
     wget -q http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
     mkdir install-tl-unx && \
