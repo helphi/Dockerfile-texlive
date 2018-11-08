@@ -14,6 +14,6 @@ RUN mkdir /texlive && cd /texlive &&\
     ./install-tl --profile=/texlive.profile &&\
     cd && rm -rf /texlive /texlive.profile
 
-RUN export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
+ENV PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 
 CMD ["xelatex"]
